@@ -57,7 +57,7 @@ class GroupOut(GroupBase):
 
 # ========================= MESSAGES ========================= #
 class MessageBase(BaseModel):
-    text: str
+    content: str
 
 
 class MessageCreate(MessageBase):
