@@ -17,7 +17,7 @@ class UserOut(UserBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # ========================= CHATS ========================= #
@@ -34,7 +34,7 @@ class ChatOut(ChatBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # ========================= GROUPS ========================= #
@@ -52,7 +52,7 @@ class GroupOut(GroupBase):
     participants: List[int]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # ========================= MESSAGES ========================= #
@@ -73,4 +73,4 @@ class MessageOut(MessageBase):
     is_read: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
