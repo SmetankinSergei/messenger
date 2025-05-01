@@ -43,8 +43,9 @@ class GroupBase(BaseModel):
     creator_id: int
 
 
-class GroupCreate(GroupBase):
-    participants: List[int]  # ID участников
+class GroupCreate(BaseModel):
+    name: str
+    participants: List[int]
 
 
 class GroupOut(GroupBase):
@@ -53,6 +54,14 @@ class GroupOut(GroupBase):
 
     class Config:
         from_attributes = True
+
+
+class AddUserToGroup(BaseModel):
+    user_id: int
+
+
+class RemoveUserFromGroup(BaseModel):
+    user_id: int
 
 
 # ========================= MESSAGES ========================= #

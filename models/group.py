@@ -1,4 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, Table, String
+from sqlalchemy.orm import relationship
+
 from db.database import Base
 
 
@@ -15,3 +17,5 @@ class Group(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     creator_id = Column(Integer, ForeignKey("users.id"))
+
+    members = relationship("User", secondary=group_members, backref="groups")

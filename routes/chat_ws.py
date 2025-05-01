@@ -7,6 +7,8 @@ from dependencies import get_current_user_ws
 from models import Message, ChatParticipant
 from datetime import datetime
 
+from services.message_service import mark_messages_as_read
+
 router = APIRouter()
 
 
@@ -31,6 +33,13 @@ async def chat_websocket(
         return
 
     await websocket.accept()
+
+    await mark_messages_as_read(
+        chat_id=chat_id,
+        reader_id=user.id,
+        db=db,
+        connections=active_connections[chat_id]
+    )
 
     if chat_id not in active_connections:
         active_connections[chat_id] = []

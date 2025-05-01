@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import user_routes, chat_routes, chat_ws
+from routes import user_routes, chat_routes, chat_ws, group_routes
 
 # from db.database import engine, Base
 # print(">>> Creating tables...")
@@ -23,5 +23,6 @@ app.add_middleware(
 )
 
 app.include_router(chat_ws.router)
+app.include_router(group_routes.router, prefix="/groups", tags=["Groups"])
 app.include_router(user_routes.router, prefix="/users", tags=["Users"])
 app.include_router(chat_routes.router, prefix="/chats", tags=["Сhats"])
