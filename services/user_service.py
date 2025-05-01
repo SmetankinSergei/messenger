@@ -1,3 +1,4 @@
+from config import SECRET_KEY, ALGORITHM
 from repositories import user_repo
 from schemas.models import UserCreate, UserOut
 from security import hash_password
@@ -12,10 +13,6 @@ from datetime import datetime, timedelta
 from models.user import User
 from schemas.token import Token
 
-
-SECRET_KEY = "secret-key"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
