@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from schemas.models import UserCreate, UserOut
 from services import user_service
-
 from schemas.token import Token
 
 

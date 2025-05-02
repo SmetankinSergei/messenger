@@ -83,3 +83,19 @@ class MessageOut(MessageBase):
 
     class Config:
         from_attributes = True
+
+
+class MessageReadBase(BaseModel):
+    message_id: int
+
+
+class MessageReadCreate(MessageReadBase):
+    pass
+
+
+class MessageReadOut(MessageReadBase):
+    user_id: int
+    read_at: datetime
+
+    class Config:
+        from_attributes = True

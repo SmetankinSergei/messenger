@@ -12,3 +12,10 @@ class Message(Base):
     content = Column(String)
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
     is_read = Column(Boolean, default=False)
+
+
+class MessageRead(Base):
+    __tablename__ = "message_reads"
+    user_id = Column(Integer, ForeignKey("users.id"), primary_key=True)
+    message_id = Column(Integer, ForeignKey("messages.id"), primary_key=True)
+    read_at = Column(DateTime(timezone=True), server_default=func.now())
