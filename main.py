@@ -2,10 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import user_routes, chat_routes, chat_ws, group_routes, group_ws
 
-# from db.database import engine, Base
-# print(">>> Creating tables...")
-# Base.metadata.create_all(bind=engine)
-# print(">>> Tables created.")
 
 app = FastAPI(
     title="Messenger API",
