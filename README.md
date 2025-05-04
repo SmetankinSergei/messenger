@@ -13,7 +13,8 @@
 <h2>Запуск в Docker</h2>
 <ul>
 <li>В файле .env замени url бд на свой</li>
-<li>Выполни docker-compose up --build</li>
+<li>Выполни: docker-compose up --build</li>
+<li>Примени миграции: docker-compose exec web alembic upgrade head</li>
 </ul>
 
 <h2>Основные зависимости</h2>
